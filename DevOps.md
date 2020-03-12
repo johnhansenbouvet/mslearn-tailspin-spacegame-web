@@ -1,4 +1,4 @@
-###create-a-build-pipeline
+### create-a-build-pipeline
 [create-a-build-pipeline](https://docs.microsoft.com/nb-no/learn/modules/create-a-build-pipeline/3-build-locally)
 
 Get the source code
@@ -105,3 +105,12 @@ Verify the application is running
 In development mode, the Space Game web site is configured to run on port 5000.
 From a new browser tab, navigate to http://localhost:5000 to see the running application.
 You see this:
+
+
+bash
+
+Kopier
+
+git add azure-pipelines.yml
+git commit -m "Add build tasks"
+git push origin build-pipeline
