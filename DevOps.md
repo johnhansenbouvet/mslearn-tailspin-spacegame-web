@@ -111,6 +111,8 @@ bash
 
 Kopier
 
+git pull origin master
+
 git add azure-pipelines.yml
 git commit -m "Add build tasks"
 git push origin build-pipeline
