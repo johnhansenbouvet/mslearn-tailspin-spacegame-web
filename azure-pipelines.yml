@@ -1,8 +1,13 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
 trigger:
   - '*'
   
   pool:
-    vmImage: 'ubuntu-latest'
+    vmImage: 'ubuntu-16.04'
     demands:
     - npm
   
@@ -43,3 +48,4 @@ trigger:
       command: 'build'
       arguments: '--no-restore --configuration Release'
       projects: '**/*.csproj'
+  
