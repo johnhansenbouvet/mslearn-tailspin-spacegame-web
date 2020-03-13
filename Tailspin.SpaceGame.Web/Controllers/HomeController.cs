@@ -59,11 +59,7 @@ namespace TailSpin.SpaceGame.Web.Controllers
 
             try
             {
-                // Form the query predicate.
-                // This expression selects all scores that match the provided game 
-                // mode and region (map).
-                // Select the score if the game mode or region is empty.
-                Expression<Func<Score, bool>> queryPredicate = score =>
+                   Expression<Func<Score, bool>> queryPredicate = score =>
                     (string.IsNullOrEmpty(mode) || score.GameMode == mode) &&
                     (string.IsNullOrEmpty(region) || score.GameRegion == region);
 
@@ -91,8 +87,6 @@ namespace TailSpin.SpaceGame.Web.Controllers
                     vm.NextLink = $"/?page={page + 1}&pageSize={pageSize}&mode={mode}&region={region}#leaderboard";
                 }
 
-                // Fetch the user profile for each score.
-                // This creates a list that's parallel with the scores collection.
                 var profiles = new List<Task<Profile>>();
                 foreach (var score in scores)
                 {
@@ -100,7 +94,6 @@ namespace TailSpin.SpaceGame.Web.Controllers
                 }
                 Task<Profile>.WaitAll(profiles.ToArray());
 
-                // Combine each score with its profile.
                 vm.Scores = scores.Zip(profiles, (score, profile) => new ScoreProfile { Score = score, Profile = profile.Result });
 
                 return View(vm);

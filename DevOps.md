@@ -116,3 +116,17 @@ git pull origin master
 git add azure-pipelines.yml
 git commit -m "Add build tasks"
 git push origin build-pipeline
+
+
+## https://docs.microsoft.com/nb-no/learn/modules/create-a-build-pipeline/8-build-multiple-configurations
+Run the pipeline
+You'll now push your changes to GitHub and see the pipeline run.
+From the integrated terminal, add azure-pipelines.yml and templates/build.yml to the index, commit the changes, and push the changes up to GitHub:
+bash
+
+Kopier
+
+git add azure-pipelines.yml templates/build.yml
+git commit -m "Support build configurations"
+git push origin build-pipeline
+From Azure Pipelines, trace the build through each of the steps, as you did earlier.
